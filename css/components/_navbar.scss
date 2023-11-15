@@ -1,0 +1,218 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    padding-top: 1.3rem;
+    padding-inline: 2.5rem;
+    margin-bottom: 4.188rem;
+
+    @include tablet-styles {
+        margin-bottom: 2rem;
+        justify-content: space-between;
+    }
+
+    @include mobile-l-styles {
+        padding-top: 1rem;
+        padding-inline: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .navbar-logo {
+        margin-right: 3.875rem;
+    }
+
+    .navbar__menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .navbar__navbar-buttons {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+
+            .nav-button {
+                border: 2px solid $color-primary;
+                border-radius: 14px;
+                padding: 0.69rem 1.3rem;
+                transition: all 200ms ease-in-out;
+                text-align: center;
+
+                &:hover {
+                    border: 2px solid $color-base;
+                }
+            }
+        }
+
+        @include tablet-styles {
+            display: flex;
+            flex-direction: column;
+            justify-content: unset;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 240px;
+            z-index: 9999;
+            background-color: $color-base-secondary;
+            padding: 4.875rem;
+            padding-left: 1.5rem;
+            padding-right: 1.313rem;
+            transition: 500ms;
+            transform: translateX(100%);
+
+            &.active {
+                transform: translateX(0%);
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                align-self: flex-start;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .navbar__navbar-buttons {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                width: 100%;
+
+                li:nth-of-type(2) {
+                    align-self: stretch;
+                }
+
+                .nav-button {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    // dropdown menus 
+
+    .featuresButton,
+    .companyButton {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        overflow: hidden;
+        max-height: 0;
+
+        position: absolute;
+        right: 0;
+        top: 2.25rem;
+        background-color: $color-base-secondary;
+        color: $color-primary;
+
+        cursor: auto;
+        padding: 1.475rem 1.35rem;
+        border-radius: 10px;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.149126);
+
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &.visible {
+            transition: all 300ms ease-in-out;
+            opacity: 1;
+            max-height: unset;
+        }
+
+        li a {
+            display: flex;
+            gap: 1.2rem;
+            font-size: $font-size-small;
+        }
+
+        .icon-box {
+            flex-shrink: 0;
+            width: 16px;
+
+            img {
+                margin: 0 auto;
+            }
+        }
+
+        @include tablet-styles {
+            display: none;
+            position: static;
+            box-shadow: none;
+
+            &.visible {
+                display: flex;
+                gap: 1.4rem;
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    .companyButton {
+        .dropdown-menu {
+            right: unset;
+            left: 0;
+        }
+    }
+
+
+    // menu icon 
+
+    .menu {
+        display: none;
+        transition: all 200ms ease-in-out;
+        cursor: pointer;
+        z-index: 9999;
+
+        @include tablet-styles {
+            display: block;
+        }
+
+        .line {
+            height: 2px;
+            width: 32px;
+            background-color: $color-base;
+            transition: 300ms;
+
+            &:not(:last-child) {
+                margin-bottom: 6px;
+            }
+        }
+
+        &.active {
+            .line {
+                &:not(:last-child) {
+                    margin-bottom: 0px;
+                }
+
+                &:nth-of-type(1) {
+                    transform: translateY(2px) rotate(45deg);
+                }
+
+                &:nth-of-type(2) {
+                    opacity: 0;
+                }
+
+                &:nth-of-type(3) {
+                    transform: translateY(-2px) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
