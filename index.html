@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Intro section with dropdown navigation | FEM</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="./index.html" class="navbar-logo"><img src="./images/logo.svg" alt="snap-logo"></a>
+        <div class="navbar__menu-container">
+            <ul class="nav-menu">
+                <li class="featuresButton">
+                    <button>Features
+                        <span class="arrow-icon">
+                            <div class="arrow-line"></div>
+                            <div class="arrow-line"></div>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">
+                                <div class="icon-box">
+                                    <img src="./images/icon-todo.svg">
+                                </div>
+                                <span>Todo&nbsp;List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon-box">
+                                    <img src="./images/icon-calendar.svg">
+                                </div>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon-box">
+                                    <img src="images/icon-reminders.svg">
+                                </div>
+                                <span> Reminders</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon-box">
+                                    <img src="images/icon-planning.svg">
+                                </div>
+                                <span>Planning</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="companyButton">
+                    <button>Company
+                        <span class="arrow-icon">
+                            <div class="arrow-line"></div>
+                            <div class="arrow-line"></div>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">
+                                <span>History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Our&nbsp;Team</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Blog</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Carrers </a></li>
+                <li><a href="#">About </a></li>
+            </ul>
+            <ul class="navbar__navbar-buttons">
+                <li><a href="#">Login</a></li>
+                <li><a href="#" class="nav-button">Register</a></li>
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="main__inner">
+            <div class="main__text-box">
+                <h1>Make <br> remote work</h1>
+                <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and
+                    watchproductivity soar.</p>
+                <a class="text-box__button">Learn more</a>
+                <div class="text-box__logos-container">
+                    <a href="#"><img src="./images/client-databiz.svg" alt="databiz-logo"></a>
+                    <a href="#"><img src="./images/client-audiophile.svg" alt="audiophile-logo"></a>
+                    <a href="#"><img src="./images/client-meet.svg" alt="meet-logo"></a>
+                    <a href="#"><img src="./images/client-maker.svg" alt="maker-logo"></a>
+                </div>
+            </div>
+            <picture class="main__img-box">
+                <source srcset="./images/image-hero-mobile.png" media="(max-width:886px)">
+                <img src="./images/image-hero-desktop.png" alt="hero-img">
+            </picture>
+        </div>
+    </main>
+    <div class="overlay"></div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

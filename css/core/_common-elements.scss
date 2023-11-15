@@ -1,0 +1,136 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+body {
+    min-height: 100vh;
+    font-family: $font-family-base;
+    color: $color-base;
+    background-color: $color-base-secondary;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+    transition: 400ms;
+
+    &.active {
+        display: block;
+        background-color: #151515;
+        opacity: 0.75;
+    }
+}
+
+h1 {
+    font-size: $font-size-headidng-main;
+    font-weight: $font-weight-bold;
+    line-height: 80px;
+    letter-spacing: -1px;
+    margin-bottom: 3rem;
+
+    @include laptop-custom-styles {
+        font-size: $font-size-headidng-medium;
+        line-height: 62px;
+    }
+
+    @include mobile-l-styles {
+        font-size: $font-size-headidng-main-small;
+        line-height: 42px;
+        margin-bottom: 1rem;
+    }
+
+    br {
+        @include tablet-styles {
+            display: none;
+        }
+    }
+
+}
+
+p {
+    font-size: $font-size-base;
+    line-height: 28px;
+    color: $color-primary;
+    margin-bottom: 3.188rem;
+    width: 70%;
+
+    @include laptop-custom-styles {
+        width: 90%;
+    }
+
+    @include tablet-styles {
+        width: 100%;
+    }
+
+    @include mobile-l-styles {
+        font-size: $font-size-medium;
+        line-height: 26px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+li a,
+li button {
+    display: flex;
+    align-items: center;
+    color: $color-primary;
+    font-size: $font-size-small;
+    line-height: 16px;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        color: $color-base;
+
+        .arrow-line {
+            background-color: $color-base;
+        }
+    }
+}
+
+li button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    .arrow-line {
+        height: 2px;
+        width: 7px;
+        background-color: $color-primary;
+        transition: all 500ms ease-in-out;
+        margin-left: 0.45rem;
+        margin-right: 3px;
+
+        &:nth-of-type(1) {
+            transform: rotate(-45deg);
+        }
+
+        &:nth-of-type(2) {
+            transform: translate(4px, -2px) rotate(45deg);
+        }
+    }
+
+    &.flip {
+        .arrow-line {
+            &:nth-of-type(1) {
+                transform: rotate(-135deg);
+            }
+
+            &:nth-of-type(2) {
+                transform: translate(4px, -2px) rotate(135deg);
+            }
+        }
+    }
+}
+
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+}
